@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vos Dramas pour Kapou</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('https://64.media.tumblr.com/641aac5f4543f5f8ce4b4e53a1850559/tumblr_inline_t6wxzebzOo1yrz37b_1280.png') no-repeat center / cover;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* WRAPPER DU SAPIN */
+#tree-wrapper {
+  position: relative;
+  width: 40vw;
+  min-width: 350px;
+  max-width: 550px;
+  margin-left: 1vw;
+  height: 100vh;
+}
+
+/* IMAGE SAPIN */
+#tree {
+  width: 150%;
+  max-width: none;
+  position: absolute;
+  left: 70%;
+  top : -10%;
+  transform: translateX(-50%);
+  pointer-events: none; /* important pour que clic passe */
+  z-index: 1;
+}
+
+/* ORNEMENTS */
+.ornement {
+  position: absolute;
+  width: 17%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10; /* au-dessus du sapin */
+  pointer-events: auto; /* s'assure que le clic passe */
+}
+
+/* Hover */
+.ornement:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.ornement.clicked {
+  animation: sway 0.35s ease;
+}
+
+@keyframes sway {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(15deg) scale(1.1); }
+  50% { transform: rotate(-10deg) scale(1.1); }
+  75% { transform: rotate(10deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+#copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(220, 20, 60, 0.9);
+  color: #fff;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: solid white 0.4rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 50;
+  text-align: center;
+}
+
+#copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  animation: toast-bounce 0.3s ease;
+}
+
+/* Petit rebond façon cadeau posé */
+@keyframes toast-bounce {
+  0% { transform: translateX(-50%) translateY(20px) scale(0.8); }
+  50% { transform: translateX(-50%) translateY(-5px) scale(1.05); }
+  100% { transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+/* Option : flocons autour du toast */
+#copy-toast::before {
+  content: '❄️';
+  margin-right: 6px;
+}
+
+#copy-toast::after {
+  content: '❄️';
+  margin-left: 6px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+  
+<div id="tree-wrapper">
+  <!-- SAPIN -->
+  <img id="tree" src="https://64.media.tumblr.com/f64adac8fde32e171c8dce505e447d54/tumblr_inline_t6wowhkkTT1yrz37b_1280.png">
+
+  <!-- 14 ORNEMENTS -->
+
+ <!-- Star -->
+  <img src="https://64.media.tumblr.com/020265015353dab72edc53b7e3be8f2c/tumblr_inline_t6wqtdvxkq1yrz37b_500.png"
+       class="ornement"
+       style="top:1%; left:61%;"
+       data-json-id="Star">
+       
+ <!-- Wheel -->
+  <img src="https://64.media.tumblr.com/e488e8544b2d7b4dfe0619e47fb94b1e/tumblr_inline_t6wqt7R7p81yrz37b_500.png"
+       class="ornement"
+       style="top:12%; left:63%;"
+       data-json-id="Wheel">
+       
+ <!-- Bee -->
+  <img src="https://64.media.tumblr.com/5d99f86366f7a355f05b0e40442ef484/tumblr_inline_t6wqen0zke1yrz37b_500.png"
+       class="ornement"
+       style="top:25%; left:70%;"
+       data-json-id="Bee">
+
+ <!-- Cars -->
+  <img src="https://64.media.tumblr.com/e7d04b6e7c817db452319b9e32675d52/tumblr_inline_t6wqecyyX91yrz37b_500.png"
+       class="ornement"
+       style="top:27%; left:49%;"
+       data-json-id="Cars">
+
+ <!-- Poppy -->
+  <img src="https://64.media.tumblr.com/d550d2e3ff33931b0a56a78a9e906c48/tumblr_inline_t6wqldyYCZ1yrz37b_500.png"
+       class="ornement"
+       style="top:35%; left:37%;"
+       data-json-id="Poppy">
+
+ <!-- Pain -->
+  <img src="https://64.media.tumblr.com/87785ceaf2152985c452f9225ca744af/tumblr_inline_t6wqrzdZ3N1yrz37b_500.png"
+       class="ornement"
+       style="top:38%; left:83%;"
+       data-json-id="Pain">
+ 
+ <!-- Tasse -->
+  <img src="https://64.media.tumblr.com/bb1995878bce405f01f09be47f815158/tumblr_inline_t6wqrpucMP1yrz37b_500.png"
+       class="ornement"
+       style="top:42%; left:57%;"
+       data-json-id="Tasse">
+       
+ <!-- Discord -->
+  <img src="https://64.media.tumblr.com/d30a30259caad817a03dbc1fb2ba4737/tumblr_inline_t6wqruO0kr1yrz37b_500.png"
+       class="ornement"
+       style="top:50%; left:35%;"
+       data-json-id="Discord">
+
+ <!-- Twitch -->
+  <img src="https://64.media.tumblr.com/5d46580e0dfc73d6c8edc1dc6e45a7b7/tumblr_inline_t6wqtjhO7w1yrz37b_500.png"
+       class="ornement"
+       style="top:60%; left:90%;"
+       data-json-id="Twitch">
+       
+ <!-- Plumbob -->
+  <img src="https://64.media.tumblr.com/fd2bcf28db7f68e1a0b421993f764aed/tumblr_inline_t6wqsn9uEJ1yrz37b_500.png"
+       class="ornement"
+       style="top:65%; left:30%;"
+       data-json-id="Plumbob">
+
+ <!-- Uk -->
+  <img src="https://64.media.tumblr.com/239571ac1332f83bdcf6522a16a29eb5/tumblr_inline_t6wqtq80jx1yrz37b_500.png"
+       class="ornement"
+       style="top:57%; left:59%;"
+       data-json-id="Uk">
+
+ <!-- Queen -->
+  <img src="https://64.media.tumblr.com/2036350fd3256c45a01b2e6963ece89b/tumblr_inline_t6wqstrXmD1yrz37b_500.png"
+       class="ornement"
+       style="top:85%; left:25%;"
+       data-json-id="Queen">
+
+ <!-- Pickle -->
+  <img src="https://64.media.tumblr.com/b9832e7a040ff0c4d436743a1412d238/tumblr_inline_t6wqsiwPI61yrz37b_500.png"
+       class="ornement"
+       style="top:73%; left:97%;"
+       data-json-id="Pickle">
+       
+ <!-- Peach -->
+  <img src="https://64.media.tumblr.com/2611a5f4940193d17bab5165e5b72aa5/tumblr_inline_t6wqs7RvO41yrz37b_500.png"
+       class="ornement"
+       style="top:84%; left:60%;"
+       data-json-id="Peach">
+       
+</div>
+
+<!-- Toast pour copier/erreur -->
+<div id="copy-toast"></div>
+
+<script>
+function showToast(message) {
+  const toast = document.getElementById('copy-toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 1500); // disparaît après 1,5s
+}
+
+// Stockage des JSONs
+const ornementsData = {
+  "Star": {},
+  "Wheel": {},
+  "Bee": {},
+  "Cars": {},
+  "Poppy": {},
+  "Tasse": {},
+  "Pain": {},
+  "Discord": {},
+  "Uk": {},
+  "Twitch": {},
+  "Queen": {},
+  "Peach": {},
+  "Pickle": {}
+};
+
+// Assignation des clics
+document.querySelectorAll('.ornement').forEach(ornement => {
+  const id = ornement.dataset.jsonId;
+
+  ornement.addEventListener('click', (e) => {
+    ornement.classList.add('clicked');
+    setTimeout(() => ornement.classList.remove('clicked'), 350);
+
+    const jsonData = JSON.stringify(ornementsData[id]);
+    navigator.clipboard.writeText(jsonData)
+      .then(() => {
+        showToast('Texte copié dans le presse-papier ✅'); // toast personnalisé
+      })
+      .catch(err => {
+        console.error('Erreur copie :', err);
+        showToast('Oups, la copie a échoué ❌'); // toast erreur
+      });
+  });
+});
+</script>
+</body>
+</html>
