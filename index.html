@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<link rel="icon" type="image/png" href="https://64.media.tumblr.com/e381b239cdc03e19f81aa5e6b6149922/tumblr_inline_t6wzj5mDlH1yrz37b_500.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vos Dramas pour Kapou</title>
+<title>Sapin interactif</title>
 
 <style>
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: url('https://64.media.tumblr.com/641aac5f4543f5f8ce4b4e53a1850559/tumblr_inline_t6wxzebzOo1yrz37b_1280.png') no-repeat center / cover;
+  background: url('https://64.media.tumblr.com/63cdd9ed6577c697518a893fbaf33b9b/tumblr_inline_t6wysp1Xkf1yrz37b_1280.png') no-repeat center / cover;
   display: flex;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 /* WRAPPER DU SAPIN */
@@ -33,7 +35,7 @@ body {
   left: 70%;
   top : -10%;
   transform: translateX(-50%);
-  pointer-events: none; /* important pour que clic passe */
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -43,11 +45,11 @@ body {
   width: 17%;
   cursor: pointer;
   transition: transform 0.2s ease;
-  z-index: 10; /* au-dessus du sapin */
-  pointer-events: auto; /* s'assure que le clic passe */
+  z-index: 10;
+  pointer-events: auto; 
 }
 
-/* Hover */
+/* Ornements Hover */
 .ornement:hover {
   transform: scale(1.1) rotate(5deg);
 }
@@ -64,6 +66,7 @@ body {
   100% { transform: rotate(0deg) scale(1); }
 }
 
+/* Toast Message */
 #copy-toast {
   position: fixed;
   bottom: 30px;
@@ -91,7 +94,7 @@ body {
   animation: toast-bounce 0.3s ease;
 }
 
-/* Petit rebond façon cadeau posé */
+/* Toast Animation */
 @keyframes toast-bounce {
   0% { transform: translateX(-50%) translateY(20px) scale(0.8); }
   50% { transform: translateX(-50%) translateY(-5px) scale(1.05); }
@@ -120,7 +123,7 @@ body {
   <!-- SAPIN -->
   <img id="tree" src="https://64.media.tumblr.com/f64adac8fde32e171c8dce505e447d54/tumblr_inline_t6wowhkkTT1yrz37b_1280.png">
 
-  <!-- 14 ORNEMENTS -->
+  <!-- Emplacement & ID des Ornements -->
 
  <!-- Star -->
   <img src="https://64.media.tumblr.com/020265015353dab72edc53b7e3be8f2c/tumblr_inline_t6wqtdvxkq1yrz37b_500.png"
@@ -208,8 +211,10 @@ body {
        
 </div>
 
-<!-- Toast pour copier/erreur -->
+<!-- DIV Toast -->
 <div id="copy-toast"></div>
+
+<!-- SCRIPTS -->
 
 <script>
 function showToast(message) {
