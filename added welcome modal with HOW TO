@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<head>
 <link rel="icon" type="image/png" href="https://64.media.tumblr.com/e381b239cdc03e19f81aa5e6b6149922/tumblr_inline_t6wzj5mDlH1yrz37b_500.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -112,12 +113,88 @@ body {
   margin-left: 6px;
 }
 
+#intro-modal {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#intro-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#intro-content {
+  background: rgba(211, 63, 73, 1);
+  border: solid, #fff, 0.5rem;
+  color: #fff;
+  padding: 25px 35px;
+  border-radius: 30px;
+  max-width: 550px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+/* Noeud 🎀 */
+.modal-bow {
+  position: absolute;
+  top: 185px; /* au-dessus du modal */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6rem; /* taille du noeud */
+}
+
+#intro-close {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  background: #fff;
+  color: #d33f49;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#intro-close:hover {
+  transform: scale(1.05);
+  background-color: #d33f49;
+  border: solid, #fff;
+  color: #fff;
+  
+}
+
 }
 
 </style>
 </head>
 
 <body>
+  
+<!-- MODAL D'INTRO -->
+<div id="intro-modal">
+  <div id="intro-content">
+    <div class="modal-bow">🎀</div>
+    <p>
+      Grâce au système d'import & d'export de roues, 
+      <br>certaines Pêches ont décidé de t'offrir quelques-unes de leurs roues remplies de Dramaaaaaaas !
+      <br>
+      <br>
+      Clique sur les ornements du sapin pour les copier & les importer sur le site
+      <a href="https://youcanspinmywheel.github.io/larouelarouelaroue/" target="_blank" style="color:#fff;">YouCanSpinMyWheel</a>.
+    </p>
+    <button id="intro-close">OK</button>
+  </div>
+</div>  
   
 <div id="tree-wrapper">
   <!-- SAPIN -->
@@ -214,6 +291,8 @@ body {
 <!-- DIV Toast -->
 <div id="copy-toast"></div>
 
+
+
 <!-- SCRIPTS -->
 
 <script>
@@ -223,6 +302,18 @@ function showToast(message) {
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 1500); // disparaît après 1,5s
 }
+
+// Modal d'Accueil
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('intro-modal').classList.add('show');
+  }, 60);
+});
+
+// Ferme le modal quand on clique sur le bouton
+document.getElementById('intro-close').addEventListener('click', () => {
+  document.getElementById('intro-modal').classList.remove('show');
+});
 
 // Stockage des JSONs
 const ornementsData = {
