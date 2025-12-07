@@ -4,7 +4,7 @@
 <link rel="icon" type="image/png" href="https://64.media.tumblr.com/e381b239cdc03e19f81aa5e6b6149922/tumblr_inline_t6wzj5mDlH1yrz37b_500.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DramaPeaches</title>
+<title>Sapin interactif</title>
 
 <style>
 body {
@@ -334,19 +334,30 @@ const ornementsData = {
 // Assignation des clics
 document.querySelectorAll('.ornement').forEach(ornement => {
   const id = ornement.dataset.jsonId;
+  const data = ornementsData[id]; // on récupère les données
 
+  // ✅ SI PAS DE DONNÉES → ornement désactivé
+  if (!data || Object.keys(data).length === 0) {
+    ornement.style.opacity = "0";
+    ornement.style.cursor = "default";
+    ornement.style.pointerEvents = "none";
+    return;
+  }
+
+  // ✅ SI IL Y A DES DONNÉES → cliquable
   ornement.addEventListener('click', (e) => {
     ornement.classList.add('clicked');
     setTimeout(() => ornement.classList.remove('clicked'), 350);
 
-    const jsonData = JSON.stringify(ornementsData[id]);
+    const jsonData = JSON.stringify(data);
+
     navigator.clipboard.writeText(jsonData)
       .then(() => {
-        showToast('Texte copié dans le presse-papier ✅'); // toast personnalisé
+        showToast('Texte copié dans le presse-papier ✅');
       })
       .catch(err => {
         console.error('Erreur copie :', err);
-        showToast('Oups, la copie a échoué ❌'); // toast erreur
+        showToast('Oups, la copie a échoué ❌');
       });
   });
 });
