@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<head>
 <link rel="icon" type="image/png" href="https://64.media.tumblr.com/e381b239cdc03e19f81aa5e6b6149922/tumblr_inline_t6wzj5mDlH1yrz37b_500.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,7 +135,7 @@ body {
   background: rgba(211, 63, 73, 1);
   border: solid, #fff, 0.5rem;
   color: #fff;
-  padding: 25px 35px;
+  padding: 20px 20px;
   border-radius: 30px;
   max-width: 550px;
   text-align: center;
@@ -146,10 +147,10 @@ body {
 /* Noeud 🎀 */
 .modal-bow {
   position: absolute;
-  top: 185px; /* au-dessus du modal */
+  top: 193px; /* au-dessus du modal */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 6rem; /* taille du noeud */
+  font-size: 8rem; /* taille du noeud */
 }
 
 #intro-close {
@@ -172,7 +173,6 @@ body {
   
 }
 
-}
 
 </style>
 </head>
@@ -184,12 +184,11 @@ body {
   <div id="intro-content">
     <div class="modal-bow">🎀</div>
     <p>
-      Grâce au système d'import & d'export de roues, 
-      <br>certaines Pêches ont décidé de t'offrir quelques-unes de leurs roues remplies de Dramaaaaaaas !
+      <br><strong>Dramatchiques, nouaaaanh ?</strong>
       <br>
       <br>
-      Clique sur les ornements du sapin pour les copier & les importer sur le site
-      <a href="https://youcanspinmywheel.github.io/larouelarouelaroue/" target="_blank" style="color:#fff;">YouCanSpinMyWheel</a>.
+      <i>Clique sur les ornements du sapin pour récupérer une roue & l'importer sur le site</i>
+      <strong><a href="https://youcanspinmywheel.github.io/larouelarouelaroue/" target="_blank" style="color:#fff;">YouCanSpinMyWheel</a></strong>
     </p>
     <button id="intro-close">OK</button>
   </div>
@@ -290,8 +289,6 @@ body {
 <!-- DIV Toast -->
 <div id="copy-toast"></div>
 
-
-
 <!-- SCRIPTS -->
 
 <script>
@@ -316,7 +313,41 @@ document.getElementById('intro-close').addEventListener('click', () => {
 
 // Stockage des JSONs
 const ornementsData = {
-  "Star": {},
+  "Star": {
+  "name": "La pêche & TEST Json Export",
+  "options": [
+    {
+      "text": "teste avec Peachy",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "Génial",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "J'adore",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "Elle est dingue cette pêche",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "Elle m'a donné un coeur OMG",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "what",
+      "boosted": false,
+      "multiplier": 1
+    }
+  ]
+},
   "Wheel": {},
   "Bee": {},
   "Cars": {},
@@ -353,11 +384,11 @@ document.querySelectorAll('.ornement').forEach(ornement => {
 
     navigator.clipboard.writeText(jsonData)
       .then(() => {
-        showToast('Texte copié dans le presse-papier ✅');
+        showToast('Ouh...ça sent les dramas en préparations ça ! ✅');
       })
       .catch(err => {
         console.error('Erreur copie :', err);
-        showToast('Oups, la copie a échoué ❌');
+        showToast('Aucun dramas en vue par ici ❌');
       });
   });
 });
