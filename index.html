@@ -334,7 +334,7 @@ document.querySelectorAll('.ornement').forEach(ornement => {
 
   // ✅ SI PAS DE DONNÉES → ornement désactivé
   if (!data || Object.keys(data).length === 0) {
-    ornement.style.opacity = "1";
+    ornement.style.opacity = "0";
     ornement.style.cursor = "default";
     ornement.style.pointerEvents = "none";
     return;
