@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<head>
 <link rel="icon" type="image/png" href="https://64.media.tumblr.com/e381b239cdc03e19f81aa5e6b6149922/tumblr_inline_t6wzj5mDlH1yrz37b_500.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sapin interactif</title>
+<title>DramaPeach</title>
 
 <style>
 body {
@@ -21,12 +20,12 @@ body {
 /* WRAPPER DU SAPIN */
 #tree-wrapper {
   position: relative;
-  width: 40vw;
-  min-width: 350px;
-  max-width: 550px;
-  margin-left: 1vw;
-  height: 100vh;
+  width: 550px;
+  height: 900px;
+  margin-left: 20px;
+  overflow: visible; 
 }
+
 
 /* IMAGE SAPIN */
 #tree {
@@ -335,7 +334,7 @@ document.querySelectorAll('.ornement').forEach(ornement => {
 
   // ✅ SI PAS DE DONNÉES → ornement désactivé
   if (!data || Object.keys(data).length === 0) {
-    ornement.style.opacity = "0";
+    ornement.style.opacity = "1";
     ornement.style.cursor = "default";
     ornement.style.pointerEvents = "none";
     return;
