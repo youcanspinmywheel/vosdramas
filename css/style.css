@@ -1,0 +1,417 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: url('../assets/images/background.jpeg') no-repeat left center / cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+
+/* WRAPPER DU SAPIN */
+#tree-wrapper {
+  position: relative;
+  width: fit-content;
+  height: 100vh;
+  margin-left: 0;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGE SAPIN */
+#tree {
+  width: auto;
+  height: 100vh;
+  display: block;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Container pour les ornements - même taille que le sapin */
+#ornaments-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ORNEMENTS */
+.ornement {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+  pointer-events: auto;
+  /* Centrer l'ornement sur son point d'ancrage */
+  transform: translate(-50%, -50%);
+}
+
+/* Ornements Hover */
+.ornement:hover {
+  transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+}
+
+.ornement.clicked {
+  animation: sway 0.35s ease;
+  /* Maintenir le centrage pendant l'animation */
+  transform-origin: center center;
+}
+
+/* Positionnement des ornements */
+.ornement-star {     top: 8%;
+  left: 49.9%; }
+.ornement-wheel {     top: 24.5%;
+  left: 52%; }
+.ornement-bee {top: 30%;
+  left: 61%;}
+.ornement-cars {     top: 26%;
+  left: 39%; }
+.ornement-poppy {     top: 35%;
+  left: 37%; }
+.ornement-bread {        top: 44%;
+  left: 69%; }
+.ornement-mug {         top: 45.5%;
+  left: 48%; }
+.ornement-discord {     top: 50%;
+  left: 35%; }
+.ornement-uk {     top: 55.5%;
+  left: 55%;
+ }
+.ornement-twitch { top: 63%;
+  left: 69%; }
+.ornement-plumbob { top: 65%; left: 27%; }
+.ornement-pickle {     top: 72%;
+  left: 44%; }
+.ornement-queen {        top: 83%;
+    left: 25%; }
+.ornement-peach { top: 82%; left: 69%; }
+
+@keyframes sway {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  25% { transform: translate(-50%, -50%) rotate(15deg) scale(1.1); }
+  50% { transform: translate(-50%, -50%) rotate(-10deg) scale(1.1); }
+  75% { transform: translate(-50%, -50%) rotate(10deg) scale(1.1); }
+  100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+}
+
+/* Toast Message */
+#copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(220, 20, 60, 0.9);
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: solid white 0.3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 50;
+  text-align: center;
+  min-width: 300px;
+  max-width: 80vw;
+}
+
+#copy-toast .close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: rgba(220, 20, 60, 1);
+  border: solid white 0.3rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#copy-toast .close-btn:hover {
+  transform: scale(1.2);
+}
+
+#copy-toast .toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+#copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  animation: toast-bounce 0.3s ease;
+  pointer-events: auto;
+}
+
+/* Toast Animation */
+@keyframes toast-bounce {
+  0% { transform: translateX(-50%) translateY(20px) scale(0.8); }
+  50% { transform: translateX(-50%) translateY(-5px) scale(1.05); }
+  100% { transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+/* Flocons gérés en JavaScript maintenant */
+
+#intro-modal {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#intro-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#intro-content {
+  background: rgba(211, 63, 73, 1);
+  border: solid, #fff, 0.5rem;
+  color: #fff;
+  padding: 20px 20px;
+  border-radius: 30px;
+  max-width: 550px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+/* Noeud 🎀 */
+.modal-bow {
+  position: absolute;
+  top: 230px; /* au-dessus du modal */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8rem; /* taille du noeud */
+}
+
+#intro-close {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  background: #fff;
+  color: #d33f49;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#intro-close:hover {
+  transform: scale(1.05);
+  background-color: #d33f49;
+  border: solid, #fff;
+  color: #fff;
+  
+}
+
+/* Grille mobile des ornements */
+#mobile-ornaments-grid {
+  display: none;
+  background: rgba(220, 20, 60, 0.95);
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 50vh;
+  overflow-y: auto;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+
+#mobile-ornaments-grid h3 {
+  color: white;
+  text-align: center;
+  margin: 0 0 15px 0;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+}
+
+.mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.mobile-ornament {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.mobile-ornament:hover,
+.mobile-ornament:active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: scale(1.05);
+}
+
+.mobile-ornament.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mobile-ornament.disabled:hover {
+  transform: none;
+  border-color: transparent;
+}
+
+.mobile-ornament img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.mobile-ornament span {
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .ornement {
+    width: 70px;
+  }
+
+}
+
+@media (max-width: 800px) {
+  body {
+    background: url('../assets/images/background.jpeg') no-repeat center center / cover;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  #tree-wrapper {
+    width: 90vw;
+    max-width: 500px;
+    height: auto;
+    max-height: 65vh;
+    margin: 0 auto;
+  }
+  
+  #tree {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    display: block;
+    position: relative;
+    left: auto;
+    bottom: auto;
+  }
+  
+  /* Cacher les ornements sur le sapin sur mobile */
+  .ornement {
+    display: none;
+  }
+  
+  /* Afficher la grille mobile */
+  #mobile-ornaments-grid {
+    display: block;
+  }
+  
+  #intro-content {
+    max-width: 90vw;
+    font-size: 1rem;
+    padding: 15px;
+  }
+  
+  .modal-bow {
+    font-size: 6rem;
+    top: 180px;
+  }
+  
+  #copy-toast {
+    bottom: 20px;
+    min-width: 280px;
+    max-width: 85vw;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px 0;
+  }
+  
+  #tree-wrapper {
+    width: 95vw;
+    max-height: 85vh;
+  }
+  
+  #tree {
+    max-height: 85vh;
+  }
+  
+  .ornement {
+    width: 50px;
+  }
+  
+  #copy-toast {
+    min-width: 250px;
+    max-width: 90vw;
+    font-size: 0.85rem;
+    padding: 10px 15px;
+    bottom: 15px;
+  }
+  
+  #copy-toast .close-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
+  }
+  
+  #intro-content {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  
+  .modal-bow {
+    font-size: 4rem;
+    top: 150px;
+  }
+}
