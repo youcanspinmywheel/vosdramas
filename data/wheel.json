@@ -1,0 +1,40 @@
+{
+  "displayTitle": "🎡 La Roue de la Roue",
+  "displayDescription": "Meta roue pour les vrais",
+  "surname": "DramaPeach",
+  "wheelData": {
+    "name": "🎡 La Roue de la Roue",
+    "options": [
+      {
+        "text": "Spin again!",
+        "boosted": false,
+        "multiplier": 1
+      },
+      {
+        "text": "Double spin",
+        "boosted": true,
+        "multiplier": 2
+      },
+      {
+        "text": "Triple spin",
+        "boosted": true,
+        "multiplier": 2
+      },
+      {
+        "text": "Mega spin",
+        "boosted": false,
+        "multiplier": 1
+      },
+      {
+        "text": "Ultra spin",
+        "boosted": false,
+        "multiplier": 1
+      },
+      {
+        "text": "Hyper spin",
+        "boosted": false,
+        "multiplier": 1
+      }
+    ]
+  }
+}
