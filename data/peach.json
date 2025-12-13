@@ -1,9 +1,119 @@
 {
   "displayTitle": "🍑 La Roue de Peach",
   "displayDescription": "DramaPeach special",
-  "surname": "DramaPeach",
+  "surname": "Manou_Man",
   "wheelData": {
-    "name": "",
-    "options": []
-  }
+    "name": "Folles du fond du bus",
+    "options": [
+    {
+      "text": "!linbeka",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!chloe",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!oph",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!kapou",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!tripi",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!kiwa",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!melsa",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!waye",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!priscy",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!caro",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!noma",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!smooth",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!manou",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!pimpre",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!nanou",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!simso",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!alice",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!slow",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!nany",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!coco",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!alisson",
+      "boosted": false,
+      "multiplier": 1
+    },
+    {
+      "text": "!kwet",
+      "boosted": false,
+      "multiplier": 1
+    }
+  ]
 }
