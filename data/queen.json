@@ -1,9 +1,59 @@
 {
   "displayTitle": "👑 La Roue de la Reine",
   "displayDescription": "Royal dramas",
-  "surname": "DramaPeach",
+  "surname": "Hyaweh",
   "wheelData": {
-    "name": "",
-    "options": []
+    "name": "Club de Lecture ",
+    "options": [
+    {
+      "text": "Éliminé : Adieu Le livre 1",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 2",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 3",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 4",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 5",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 6",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 7",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    },
+    {
+      "text": "Éliminé : Adieu Le livre 8",
+      "boosted": false,
+      "multiplier": 1,
+      "enabled": true
+    }
+  ]
+}
   }
 }
