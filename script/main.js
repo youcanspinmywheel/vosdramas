@@ -156,7 +156,16 @@ function initMobileOrnaments() {
   });
 }
 
+// Mettre à jour la date du copyright dynamiquement
+function updateCopyrightYear() {
+  const yearElement = document.getElementById('copyright-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+}
+
 // Lancer l'initialisation au chargement de la page
+updateCopyrightYear();
 initOrnements();
 initMobileOrnaments();
 

@@ -236,6 +236,40 @@ body {
   
 }
 
+/* Footer Copyright */
+#copyright {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  z-index: 30;
+  line-height: 1.4;
+}
+
+#copyright p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  #copyright {
+    font-size: 0.65rem;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  #copyright {
+    display: none;
+  }
+}
+
 /* Grille mobile des ornements */
 #mobile-ornaments-grid {
   display: none;
